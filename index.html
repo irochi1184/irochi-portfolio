@@ -4,7 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="irochi のイラストポートフォリオ。かわいい女の子イラストを中心に、配信用・記念イラスト・ご依頼料金表を掲載しています。" />
-  <title>irochi | Vtuber Illustration Portfolio</title>
+  <meta name="theme-color" content="#6ad7c9" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="irochi | Illustration Portfolio" />
+  <meta property="og:description" content="かわいい女の子イラストを中心に、配信用・記念イラストなどを掲載しています。" />
+  <meta property="og:url" content="https://irochi1184.github.io/irochi-portfolio/" />
+  <meta property="og:image" content="https://irochi1184.github.io/irochi-portfolio/assets/work-08.webp" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <title>irochi | Illustration Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -21,11 +28,11 @@
       <span class="logo-sub">illustration portfolio</span>
     </a>
 
-    <button class="menu-button" aria-label="メニューを開く" aria-expanded="false">
+    <button class="menu-button" aria-label="メニューを開く" aria-expanded="false" aria-controls="main-nav">
       <span></span><span></span><span></span>
     </button>
 
-    <nav class="nav">
+    <nav class="nav" id="main-nav">
       <a href="#works">作品</a>
       <a href="#about">プロフィール</a>
       <a href="#commission">ご依頼</a>
@@ -41,12 +48,12 @@
           <span>配信向け</span>
           <span>記念イラスト</span>
         </div>
-        <p class="eyebrow">VTUBER LIKE PORTFOLIO</p>
+        <p class="eyebrow">ILLUSTRATION PORTFOLIO</p>
         <h1>ポップでかわいい、<br>目を引く女の子イラストを。</h1>
         <p class="hero-text">
           女の子イラストを中心に、配信用の一枚絵、記念イラスト、立ち絵、
-          アイコンなどを制作しています。やさしい青緑系を基調に、
-          かわいさが伝わる作品をまとめています。
+          アイコンなどを制作しています。表情や色づかいを大切に、
+          見た瞬間に印象へ残る「かわいい」を目指しています。
         </p>
         <div class="hero-actions">
           <a class="button primary" href="#works">作品を見る</a>
@@ -61,7 +68,7 @@
 
       <div class="hero-visual reveal">
         <div class="hero-card main-card">
-          <img src="assets/work-08.webp" alt="メインビジュアルの女の子イラスト">
+          <img src="assets/work-08.webp" alt="メインビジュアルの女の子イラスト" fetchpriority="high" decoding="async">
         </div>
         <div class="hero-card mini-card card-top">
           <img src="assets/work-01.webp" alt="歌っている女の子イラスト">
@@ -95,15 +102,15 @@
       <div class="pickup-card">
         <span class="pickup-icon">♪</span>
         <div>
-          <h2>かわいい雰囲気をしっかりアピール</h2>
-          <p>やわらかな塗り、明るい表情、配信や記念日に映える構図を前面に出した構成です。</p>
+          <h2>配信やSNSで目を引く一枚に</h2>
+          <p>やわらかな塗りと表情を大切に、アイコンや配信画面でも印象に残るイラストを制作します。</p>
         </div>
       </div>
       <div class="pickup-card">
         <span class="pickup-icon">★</span>
         <div>
-          <h2>Vtuber的な世界観に寄せた配色</h2>
-          <p>青緑系を中心に、白や淡いピンクを差し色にしたポップで親しみやすい見た目です。</p>
+          <h2>記念日を彩る華やかなイラスト</h2>
+          <p>誕生日や周年など、大切な日の雰囲気に合わせた色づかい・小物・文字入れもご相談いただけます。</p>
         </div>
       </div>
     </section>
@@ -129,50 +136,49 @@
 
       <div class="gallery">
         <article class="work-card large" data-category="stream">
-          <img src="assets/work-01.webp" alt="歌っている女の子イラスト">
+          <img src="assets/work-01.webp" loading="lazy" decoding="async" alt="歌っている女の子イラスト">
           <div class="work-info"><span>配信系</span><h3>歌配信イラスト</h3></div>
         </article>
 
         <article class="work-card" data-category="event">
-          <img src="assets/work-03.webp" alt="花束を持った女の子イラスト">
+          <img src="assets/work-03.webp" loading="lazy" decoding="async" alt="花束を持った女の子イラスト">
           <div class="work-info"><span>記念・お祝い</span><h3>3周年お祝いイラスト</h3></div>
         </article>
 
         <article class="work-card tall" data-category="girl">
-          <img src="assets/work-05.webp" alt="ピンクの部屋着の女の子イラスト">
+          <img src="assets/work-05.webp" loading="lazy" decoding="async" alt="ピンクの部屋着の女の子イラスト">
           <div class="work-info"><span>女の子</span><h3>ルームウェアイラスト</h3></div>
         </article>
 
         <article class="work-card" data-category="stream">
-          <img src="assets/work-06.webp" alt="ゲームをしている女の子イラスト">
+          <img src="assets/work-06.webp" loading="lazy" decoding="async" alt="ゲームをしている女の子イラスト">
           <div class="work-info"><span>配信系</span><h3>ゲーム配信イラスト</h3></div>
         </article>
 
         <article class="work-card" data-category="event">
-          <img src="assets/work-02.webp" alt="ぬいぐるみを持った女の子イラスト">
+          <img src="assets/work-02.webp" loading="lazy" decoding="async" alt="ぬいぐるみを持った女の子イラスト">
           <div class="work-info"><span>記念・お祝い</span><h3>バースデーイラスト</h3></div>
         </article>
 
         <article class="work-card tall" data-category="girl">
-          <img src="assets/work-07.webp" alt="銀髪の女の子イラスト">
+          <img src="assets/work-07.webp" loading="lazy" decoding="async" alt="銀髪の女の子イラスト">
           <div class="work-info"><span>女の子</span><h3>オフショルダーイラスト</h3></div>
         </article>
 
         <article class="work-card wide" data-category="girl">
-          <img src="assets/work-08.webp" alt="制服姿の女の子イラスト">
+          <img src="assets/work-08.webp" loading="lazy" decoding="async" alt="制服姿の女の子イラスト">
           <div class="work-info"><span>女の子</span><h3>制服イラスト</h3></div>
         </article>
 
         <article class="work-card" data-category="event">
-          <img src="assets/work-04.webp" alt="眼鏡の女の子イラスト">
+          <img src="assets/work-04.webp" loading="lazy" decoding="async" alt="眼鏡の女の子イラスト">
           <div class="work-info"><span>記念・お祝い</span><h3>バースデーイラスト</h3></div>
         </article>
 
         <article class="work-card tall" data-category="girl">
-          <img src="assets/work-09.webp" alt="黒いドレスを着た女の子イラスト">
+          <img src="assets/work-09.webp" loading="lazy" decoding="async" alt="黒いドレスを着た女の子イラスト">
           <div class="work-info"><span>女の子</span><h3>ハロウィン風イラスト</h3></div>
         </article>
-
       </div>
     </section>
 
@@ -201,11 +207,11 @@
 
         <div class="about-card strength-card">
           <span class="card-label">point</span>
-          <h3>サイトの見せ方</h3>
+          <h3>得意なイラスト</h3>
           <div class="point-list">
-            <div><strong>01</strong><p>作品を大きく見せて第一印象でかわいさを伝える</p></div>
-            <div><strong>02</strong><p>青緑を基調に、Vtuberらしい軽やかな空気感を演出</p></div>
-            <div><strong>03</strong><p>料金表と問い合わせ導線をはっきり置いて依頼しやすくする</p></div>
+            <div><strong>01</strong><p>表情が伝わる、かわいい女の子イラスト</p></div>
+            <div><strong>02</strong><p>配信・SNSで使いやすい、明るく見やすい一枚絵</p></div>
+            <div><strong>03</strong><p>誕生日・周年など、特別感のある記念イラスト</p></div>
           </div>
         </div>
       </div>
@@ -277,7 +283,7 @@
         <div class="flow-card">
           <h3>ご依頼の流れ</h3>
           <ol>
-            <li><span>1</span><p>ご相諀・ヒアリング</p></li>
+            <li><span>1</span><p>ご相談・ヒアリング</p></li>
             <li><span>2</span><p>お見積り・内容確認</p></li>
             <li><span>3</span><p>ラフ提出・修正</p></li>
             <li><span>4</span><p>清書・納品</p></li>
@@ -289,16 +295,15 @@
     <section class="section-shell contact-section" id="contact">
       <div class="contact-card">
         <p class="eyebrow">CONTACT</p>
-        <h2>ご依頼・ご相諀はこちら</h2>
+        <h2>ご依頼・ご相談はこちら</h2>
         <p>
           「まずは見積りだけ知りたい」「こんな雰囲気で描けるか聞きたい」など、
           まだ内容が固まっていない段階でもお気軽にご連絡ください。
         </p>
         <div class="contact-buttons">
-          <a class="button primary" href="mailto:yourmail@example.com">メールで相諀する</a>
-          <a class="button secondary" href="#">Xの連絡先を入れる</a>
+          <span class="button primary contact-disabled" aria-disabled="true">ご依頼受付先は準備中です</span>
         </div>
-        <p class="contact-note">※メールアドレスとXのリンクは仮置きです。あとで実際の連絡先に差し替えてください。</p>
+        <p class="contact-note">連絡先を掲載後、こちらから直接ご相談いただけるようになります。</p>
       </div>
     </section>
   </main>
