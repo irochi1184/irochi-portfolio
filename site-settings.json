@@ -1,0 +1,31 @@
+{
+  "heroCatchphrase": "かわいいを、ひとつの絵に。",
+  "profileText": "かわいい女の子イラストを中心に制作。やわらかな塗りと、配信やSNSで印象に残る表情づくりを大切にしています。",
+  "xUrl": "https://x.com/_irochi_?s=11",
+  "xLabel": "X @_irochi_",
+  "paymentMethods": "PayPay / 銀行振込",
+  "openingEnabled": true,
+  "recommendedPriceIndex": 1,
+  "prices": [
+    {
+      "title": "SNSアイコン",
+      "price": "¥4,000〜",
+      "items": ["顔まわり〜バストアップ", "簡易背景", "個人利用向け"]
+    },
+    {
+      "title": "一枚絵",
+      "price": "¥7,000〜",
+      "items": ["人物1名", "背景なし〜簡易背景", "配信・サムネイル向け"]
+    },
+    {
+      "title": "立ち絵",
+      "price": "¥10,000〜",
+      "items": ["全身", "背景透過", "配信用・紹介用におすすめ"]
+    },
+    {
+      "title": "背景あり記念イラスト",
+      "price": "¥12,000〜",
+      "items": ["誕生日・周年向け", "背景あり", "華やかな仕上がり"]
+    }
+  ]
+}
