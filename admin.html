@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="admin.css">
+  <link rel="stylesheet" href="admin-extra.css">
 </head>
 <body>
   <header class="admin-header">
@@ -71,6 +72,7 @@
         <span>↑ ↓ で並び替え</span>
         <span>タイトルはその場で編集</span>
         <span>「トップ画像」でメインビジュアル変更</span>
+        <span>各作品の「画像を差し替え」で写真だけ変更</span>
       </div>
 
       <div id="empty-state" class="empty-state hidden">
@@ -92,9 +94,16 @@
 
   <template id="work-template">
     <article class="work-editor-card">
-      <div class="preview-wrap">
-        <img class="work-preview" alt="">
-        <span class="new-badge hidden">NEW</span>
+      <div class="preview-column">
+        <div class="preview-wrap">
+          <img class="work-preview" alt="">
+          <span class="new-badge hidden">NEW</span>
+        </div>
+        <label class="replace-button">
+          画像を差し替え
+          <input class="replace-input" type="file" accept="image/*">
+        </label>
+        <button class="undo-replace hidden" type="button">差し替えを取消</button>
       </div>
       <div class="work-fields">
         <label>
@@ -134,5 +143,6 @@
   </template>
 
   <script src="admin.js"></script>
+  <script src="admin-replace.js"></script>
 </body>
 </html>
