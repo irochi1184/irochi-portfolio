@@ -2,9 +2,10 @@
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const qs = (s, root = document) => root.querySelector(s);
   const qsa = (s, root = document) => [...root.querySelectorAll(s)];
+  const siteSettings = window.IROCHI_SITE_SETTINGS || {};
 
   // Opening: diagonal doors open first, then the hero animation is released.
-  if (!reduceMotion) {
+  if (!reduceMotion && siteSettings.openingEnabled !== false) {
     document.body.classList.add('intro-running');
     const intro = document.createElement('div');
     intro.className = 'site-intro';
@@ -23,18 +24,6 @@
         intro.remove();
       }, 1840);
     });
-  }
-
-  // Make the one-picture commission card the recommended option.
-  const priceCards = qsa('.price-card').slice(0, 4);
-  priceCards.forEach(card => card.querySelector('.card-badge')?.remove());
-  if (priceCards[1]) {
-    priceCards[1].classList.add('featured');
-    priceCards[0]?.classList.remove('featured');
-    const badge = document.createElement('span');
-    badge.className = 'card-badge';
-    badge.textContent = 'おすすめ';
-    priceCards[1].prepend(badge);
   }
 
   // Header depth while scrolling.
