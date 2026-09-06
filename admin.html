@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#6ad7c9">
-<title>作品・プロフィール管理 | irochi portfolio</title>
+<title>作品・サイト管理 | irochi portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-<header class="admin-header"><div><p class="eyebrow">IROCHI PORTFOLIO</p><h1>作品・プロフィール管理</h1></div><a class="ghost-button" href="./" target="_blank" rel="noopener">公開サイトを見る</a></header>
+<header class="admin-header"><div><p class="eyebrow">IROCHI PORTFOLIO</p><h1>作品・サイト管理</h1></div><a class="ghost-button" href="./" target="_blank" rel="noopener">公開サイトを見る</a></header>
 <main class="admin-shell">
 <section class="panel" id="auth-panel">
 <div class="panel-heading"><div><p class="step">STEP 1</p><h2>GitHubに接続</h2></div><span class="status-badge" id="connection-status">未接続</span></div>
@@ -19,10 +19,30 @@
 </section>
 
 <section class="panel hidden" id="editor-panel">
-<div class="panel-heading editor-heading"><div><p class="step">STEP 2</p><h2>プロフィール・作品を編集</h2></div>
+<div class="panel-heading editor-heading"><div><p class="step">STEP 2</p><h2>サイト・プロフィール・作品を編集</h2></div>
 <div class="editor-actions"><label class="primary-button file-button">写真を追加<input id="file-input" type="file" accept="image/*" multiple></label><button id="save-draft" class="ghost-button">下書き保存</button><button id="load-draft" class="ghost-button">下書き読込</button><button id="clear-draft" class="ghost-button">下書き破棄</button><button id="publish-button" class="publish-button">変更を公開</button></div></div>
-<div class="tips"><span>プロフィール画像差し替え</span><span>ドラッグまたは↑↓で並び替え</span><span>作品画像差し替え</span><span>非公開</span><span>説明・タグ</span><span>制作日・公開日</span><span>サムネ位置</span><span>複製</span></div>
+<div class="tips"><span>サイト設定</span><span>プロフィール画像差し替え</span><span>ドラッグまたは↑↓で並び替え</span><span>作品画像差し替え</span><span>非公開</span><span>説明・タグ</span><span>制作日・公開日</span><span>サムネ位置</span><span>複製</span></div>
 <div class="history-box"><label>変更履歴<select id="history-select"><option value="">履歴を選択</option></select></label><button id="load-history" class="ghost-button">この履歴を読み込む</button></div>
+
+<section class="site-settings-manager" aria-labelledby="site-settings-title">
+<div class="settings-heading"><div><p class="step">SITE SETTINGS</p><h3 id="site-settings-title">サイト設定</h3></div><p class="muted">公開サイトの文章・料金・リンク・オープニング演出をコード編集なしで変更できます。</p></div>
+<div class="settings-grid">
+<label class="settings-wide"><span>ヒーローのキャッチコピー</span><input id="setting-hero-catchphrase" type="text" maxlength="80" placeholder="かわいいを、ひとつの絵に。"></label>
+<label class="settings-wide"><span>プロフィール文章</span><textarea id="setting-profile-text" rows="4" maxlength="300"></textarea></label>
+<label><span>XアカウントURL</span><input id="setting-x-url" type="text" inputmode="url" placeholder="https://x.com/_irochi_"></label>
+<label><span>Xの表示名</span><input id="setting-x-label" type="text" maxlength="60" placeholder="X @_irochi_"></label>
+<label class="settings-wide"><span>支払い方法</span><input id="setting-payment-methods" type="text" maxlength="120" placeholder="PayPay / 銀行振込"></label>
+<div class="settings-toggle settings-wide"><div><strong>オープニング演出</strong><span>斜めの扉が開く演出を表示するか設定できます。</span></div><label class="switch"><input id="setting-opening-enabled" type="checkbox"><span></span></label></div>
+</div>
+
+<div class="price-settings-heading"><div><p class="step">COMMISSION PRICE</p><h4>料金表</h4></div><p class="muted">「おすすめ」にする項目もここから変更できます。</p></div>
+<div class="price-settings-grid" id="price-settings-grid">
+<article class="price-setting-card" data-price-index="0"><label><span>項目名</span><input class="setting-price-title" type="text"></label><label><span>料金</span><input class="setting-price-value" type="text"></label><label><span>説明（1行ごと）</span><textarea class="setting-price-items" rows="4"></textarea></label><label class="recommended-radio"><input type="radio" name="recommended-price" value="0"><span>おすすめにする</span></label></article>
+<article class="price-setting-card" data-price-index="1"><label><span>項目名</span><input class="setting-price-title" type="text"></label><label><span>料金</span><input class="setting-price-value" type="text"></label><label><span>説明（1行ごと）</span><textarea class="setting-price-items" rows="4"></textarea></label><label class="recommended-radio"><input type="radio" name="recommended-price" value="1"><span>おすすめにする</span></label></article>
+<article class="price-setting-card" data-price-index="2"><label><span>項目名</span><input class="setting-price-title" type="text"></label><label><span>料金</span><input class="setting-price-value" type="text"></label><label><span>説明（1行ごと）</span><textarea class="setting-price-items" rows="4"></textarea></label><label class="recommended-radio"><input type="radio" name="recommended-price" value="2"><span>おすすめにする</span></label></article>
+<article class="price-setting-card" data-price-index="3"><label><span>項目名</span><input class="setting-price-title" type="text"></label><label><span>料金</span><input class="setting-price-value" type="text"></label><label><span>説明（1行ごと）</span><textarea class="setting-price-items" rows="4"></textarea></label><label class="recommended-radio"><input type="radio" name="recommended-price" value="3"><span>おすすめにする</span></label></article>
+</div>
+</section>
 
 <section class="profile-manager" aria-labelledby="profile-manager-title">
 <div class="profile-manager-copy">
