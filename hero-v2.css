@@ -1,0 +1,238 @@
+@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,600&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap');
+
+/* Editorial hero refresh */
+.hero.hero-editorial {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(480px, 1.18fr);
+  gap: 54px;
+  align-items: center;
+  min-height: 720px;
+  padding: 72px 0 64px;
+}
+.hero.hero-editorial::before {
+  content: "";
+  position: absolute;
+  inset: 22px -4vw 18px;
+  z-index: -2;
+  border-radius: 42px;
+  background:
+    linear-gradient(rgba(35,68,71,.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(35,68,71,.045) 1px, transparent 1px),
+    radial-gradient(circle at 78% 14%, rgba(106,215,201,.22), transparent 30%),
+    linear-gradient(135deg, #fffefd 0%, #f9fbf9 52%, #eef8f5 100%);
+  background-size: 34px 34px, 34px 34px, auto, auto;
+  box-shadow: 0 28px 80px rgba(38,80,75,.08);
+}
+.hero.hero-editorial::after {
+  content: "";
+  position: absolute;
+  top: 22px;
+  right: 5%;
+  width: 110px;
+  height: 1px;
+  background: #234447;
+  opacity: .22;
+}
+.hero-editorial-copy {
+  position: relative;
+  z-index: 3;
+  padding-left: 10px;
+}
+.hero-kicker {
+  margin: 0 0 22px;
+  font: 500 11px/1.4 "Zen Kaku Gothic New", sans-serif;
+  letter-spacing: .28em;
+  color: #587074;
+}
+.hero-brand {
+  margin: 0;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(76px, 8.8vw, 138px);
+  font-weight: 500;
+  line-height: .82;
+  letter-spacing: -.055em;
+  color: #1f3f42;
+}
+.hero-brand i {
+  font-style: italic;
+  font-weight: 500;
+  color: #36a99d;
+}
+.hero-tagline {
+  margin: 28px 0 0;
+  font-family: "Zen Kaku Gothic New", sans-serif;
+  font-size: clamp(18px, 2vw, 26px);
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: #304f52;
+}
+.hero-editorial-actions {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  margin-top: 34px;
+}
+.hero-editorial-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 0 7px;
+  border-bottom: 1px solid rgba(35,68,71,.42);
+  font: 500 12px/1 "Zen Kaku Gothic New", sans-serif;
+  letter-spacing: .14em;
+  transition: gap .2s ease, color .2s ease;
+}
+.hero-editorial-link::after {
+  content: "↗";
+  font-size: 14px;
+}
+.hero-editorial-link:hover {
+  gap: 17px;
+  color: #218e85;
+}
+.hero-editorial-visual {
+  position: relative;
+  min-height: 600px;
+}
+.hero-art-main {
+  position: absolute;
+  inset: 0 0 0 13%;
+  overflow: hidden;
+  border-radius: 6px 44px 6px 44px;
+  background: #fff;
+  box-shadow: 0 34px 80px rgba(27,66,63,.16);
+}
+.hero-art-main::before {
+  content: "SELECTED WORK / 01";
+  position: absolute;
+  top: 20px;
+  left: 22px;
+  z-index: 2;
+  padding: 7px 10px;
+  background: rgba(255,255,255,.88);
+  backdrop-filter: blur(12px);
+  font: 500 9px/1 "Zen Kaku Gothic New", sans-serif;
+  letter-spacing: .2em;
+  color: #294e50;
+}
+.hero-art-main img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .8s cubic-bezier(.2,.75,.3,1);
+}
+.hero-art-main:hover img { transform: scale(1.018); }
+.hero-art-mini {
+  position: absolute;
+  z-index: 4;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 22px 46px rgba(35,68,71,.16);
+}
+.hero-art-mini img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.hero-art-mini.one {
+  width: 178px;
+  height: 220px;
+  left: 0;
+  bottom: 44px;
+  transform: rotate(-4deg);
+  border: 9px solid #fff;
+}
+.hero-art-mini.two {
+  width: 142px;
+  height: 142px;
+  right: -28px;
+  top: 58px;
+  border-radius: 50%;
+  border: 8px solid #fff;
+}
+.hero-edition {
+  position: absolute;
+  right: 7px;
+  bottom: 8px;
+  z-index: 5;
+  font-family: "Bodoni Moda", serif;
+  font-size: 16px;
+  font-style: italic;
+  color: #365f61;
+}
+
+/* irochi creator profile */
+.about-grid.irochi-profile-layout {
+  grid-template-columns: 1fr;
+}
+.irochi-profile-card {
+  display: grid;
+  grid-template-columns: minmax(0, .92fr) minmax(340px, .78fr);
+  gap: 34px;
+  align-items: center;
+}
+.irochi-profile-media {
+  overflow: hidden;
+  border-radius: 8px 32px 8px 32px;
+  background: #f7faf8;
+  box-shadow: 0 22px 50px rgba(53,100,94,.12);
+}
+.irochi-profile-media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+.irochi-profile-copy h3 {
+  margin: 10px 0 12px;
+  font-family: "Bodoni Moda", serif;
+  font-size: clamp(44px, 5vw, 68px);
+  font-weight: 500;
+  letter-spacing: -.04em;
+}
+.irochi-profile-copy p { max-width: 520px; }
+.irochi-profile-copy ul {
+  margin: 22px 0 0;
+  padding-left: 18px;
+}
+
+@media (max-width: 1020px) {
+  .hero.hero-editorial {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding-top: 64px;
+  }
+  .hero-editorial-copy { padding-left: 0; }
+  .hero-editorial-visual { min-height: 620px; }
+  .irochi-profile-card { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 720px) {
+  .hero.hero-editorial {
+    gap: 30px;
+    padding: 48px 0 42px;
+  }
+  .hero.hero-editorial::before {
+    inset: 10px -6px 8px;
+    border-radius: 28px;
+    background-size: 26px 26px, 26px 26px, auto, auto;
+  }
+  .hero-brand { font-size: clamp(70px, 24vw, 100px); }
+  .hero-tagline { margin-top: 20px; font-size: 18px; }
+  .hero-editorial-actions { margin-top: 28px; gap: 20px; }
+  .hero-editorial-link { font-size: 11px; }
+  .hero-editorial-visual { min-height: 460px; }
+  .hero-art-main { inset: 0 5px 0 12%; border-radius: 4px 28px 4px 28px; }
+  .hero-art-mini.one { width: 118px; height: 150px; left: 2px; bottom: 25px; border-width: 6px; }
+  .hero-art-mini.two { width: 94px; height: 94px; right: -4px; top: 32px; border-width: 5px; }
+  .hero-art-main::before { top: 14px; left: 14px; font-size: 8px; }
+  .irochi-profile-card { grid-template-columns: 1fr; }
+  .irochi-profile-media { order: -1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-art-main img,
+  .hero-editorial-link { transition: none; }
+}
