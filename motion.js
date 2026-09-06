@@ -1,8 +1,41 @@
 (() => {
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
   const qs = (s, root = document) => root.querySelector(s);
   const qsa = (s, root = document) => [...root.querySelectorAll(s)];
+
+  // Opening: diagonal doors open first, then the hero animation is released.
+  if (!reduceMotion) {
+    document.body.classList.add('intro-running');
+    const intro = document.createElement('div');
+    intro.className = 'site-intro';
+    intro.setAttribute('aria-hidden', 'true');
+    intro.innerHTML = `
+      <div class="intro-panel left"></div>
+      <div class="intro-panel right"></div>
+      <div class="intro-seam"></div>
+      <div class="intro-mark"><strong>irochi.</strong><span>illustration portfolio</span></div>`;
+    document.body.prepend(intro);
+
+    requestAnimationFrame(() => {
+      setTimeout(() => intro.classList.add('is-opening'), 520);
+      setTimeout(() => {
+        document.body.classList.remove('intro-running');
+        intro.remove();
+      }, 1840);
+    });
+  }
+
+  // Make the one-picture commission card the recommended option.
+  const priceCards = qsa('.price-card').slice(0, 4);
+  priceCards.forEach(card => card.querySelector('.card-badge')?.remove());
+  if (priceCards[1]) {
+    priceCards[1].classList.add('featured');
+    priceCards[0]?.classList.remove('featured');
+    const badge = document.createElement('span');
+    badge.className = 'card-badge';
+    badge.textContent = 'おすすめ';
+    priceCards[1].prepend(badge);
+  }
 
   // Header depth while scrolling.
   const header = qs('.site-header');
@@ -10,7 +43,7 @@
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
 
-  // Site-wide scroll reveal with staggered timing.
+  // Site-wide reveal with a stronger float-up motion for illustration cards.
   const revealTargets = [
     ...qsa('.pick-up .pickup-card'),
     ...qsa('.works-section .section-heading'),
@@ -23,10 +56,16 @@
     ...qsa('.contact-card')
   ];
 
-  revealTargets.forEach((el, i) => {
+  let galleryDelay = 0;
+  let priceDelay = 0;
+  revealTargets.forEach(el => {
     el.classList.add('motion-reveal');
-    if (el.matches('.gallery .work-card, .price-card')) {
-      el.style.setProperty('--motion-delay', `${(i % 6) * 55}ms`);
+    if (el.matches('.gallery .work-card')) {
+      el.style.setProperty('--motion-delay', `${galleryDelay * 75}ms`);
+      galleryDelay = (galleryDelay + 1) % 4;
+    } else if (el.matches('.price-card')) {
+      el.style.setProperty('--motion-delay', `${priceDelay * 85}ms`);
+      priceDelay += 1;
     }
   });
 
@@ -37,7 +76,7 @@
         entry.target.classList.add('motion-in');
         observer.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
+    }, { rootMargin: '0px 0px -7% 0px', threshold: 0.1 });
     revealTargets.forEach(el => io.observe(el));
   } else {
     revealTargets.forEach(el => el.classList.add('motion-in'));
@@ -68,8 +107,8 @@
     });
   }
 
-  // Spotlight that follows pointer inside key cards.
-  const spotlightCards = qsa('.work-card, .price-card, .pickup-card, .about-card');
+  // Spotlight follows the pointer inside cards.
+  const spotlightCards = qsa('.work-card, .price-card, .pickup-card, .about-card, .extra-card, .flow-card');
   spotlightCards.forEach(card => {
     card.addEventListener('pointermove', (event) => {
       if (reduceMotion) return;
@@ -79,7 +118,7 @@
     });
   });
 
-  // Button/link magnetic nudge on capable pointer devices.
+  // Button/link magnetic nudge on desktop.
   if (!reduceMotion && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
     qsa('.button, .hero-editorial-link, .filter').forEach(el => {
       el.addEventListener('pointermove', (event) => {
@@ -92,19 +131,19 @@
     });
   }
 
-  // Filter transitions: fade cards instead of snapping.
+  // Filter transitions.
   qsa('.filter').forEach(button => {
     button.addEventListener('click', () => {
       qsa('.gallery .work-card').forEach(card => {
         card.animate([
-          { opacity: .45, transform: 'translateY(6px) scale(.99)' },
+          { opacity: .35, transform: 'translateY(16px) scale(.985)' },
           { opacity: 1, transform: 'translateY(0) scale(1)' }
-        ], { duration: 320, easing: 'cubic-bezier(.22,.61,.36,1)' });
+        ], { duration: 430, easing: 'cubic-bezier(.16,1,.3,1)' });
       });
     });
   });
 
-  // A small number of ambient sparkles gives movement to otherwise empty areas.
+  // Ambient sparkles.
   if (!reduceMotion) {
     const colors = [
       'rgba(106,215,201,.62)',
@@ -126,7 +165,6 @@
     }
   }
 
-  // Smooth anchor transitions with a light visual response.
   qsa('a[href^="#"]').forEach(link => {
     link.addEventListener('click', () => {
       const id = link.getAttribute('href');
@@ -135,7 +173,7 @@
       if (!target || reduceMotion) return;
       setTimeout(() => {
         target.animate([
-          { filter: 'brightness(1.02)' },
+          { filter: 'brightness(1.025)' },
           { filter: 'brightness(1)' }
         ], { duration: 520, easing: 'ease-out' });
       }, 360);
