@@ -141,3 +141,14 @@ if (contactCard) {
   if (buttons) buttons.innerHTML = '<a class="button primary" href="https://x.com/_irochi_?s=11" target="_blank" rel="noopener">Xで依頼する</a>';
   if (note) note.textContent = '支払い方法：PayPay / 銀行振込';
 }
+
+// Rich motion layer: loaded after the dynamic hero/profile markup is built.
+const motionStyle = document.createElement('link');
+motionStyle.rel = 'stylesheet';
+motionStyle.href = 'motion.css';
+document.head.appendChild(motionStyle);
+
+const motionScript = document.createElement('script');
+motionScript.src = 'motion.js';
+motionScript.defer = true;
+document.body.appendChild(motionScript);
