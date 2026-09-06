@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#6ad7c9">
+  <title>作品管理 | irochi portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <header class="admin-header">
+    <div>
+      <p class="eyebrow">IROCHI PORTFOLIO</p>
+      <h1>作品管理</h1>
+    </div>
+    <a class="ghost-button" href="./" target="_blank" rel="noopener">公開サイトを見る</a>
+  </header>
+
+  <main class="admin-shell">
+    <section class="panel auth-panel" id="auth-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="step">STEP 1</p>
+          <h2>GitHubに接続</h2>
+        </div>
+        <span class="status-badge" id="connection-status">未接続</span>
+      </div>
+      <p class="muted">
+        irochi-portfolio だけを編集できる Fine-grained Personal Access Token を入力します。
+        トークンはこのページ内の処理だけに使い、GitHubリポジトリには保存しません。
+      </p>
+      <div class="token-row">
+        <input id="token-input" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="github_pat_...">
+        <button id="load-button" class="primary-button" type="button">作品を読み込む</button>
+      </div>
+      <label class="check-row">
+        <input id="remember-session" type="checkbox" checked>
+        <span>このタブを閉じるまでトークンを保持する</span>
+      </label>
+      <details class="token-help">
+        <summary>初回だけ：トークンの作り方</summary>
+        <ol>
+          <li>GitHubの Settings → Developer settings → Personal access tokens → Fine-grained tokens を開く</li>
+          <li>Repository access は「Only select repositories」で <code>irochi-portfolio</code> だけを選ぶ</li>
+          <li>Repository permissions の Contents を「Read and write」にする</li>
+          <li>作成したトークンをこの欄へ貼り付ける</li>
+        </ol>
+      </details>
+    </section>
+
+    <section class="panel hidden" id="editor-panel">
+      <div class="panel-heading editor-heading">
+        <div>
+          <p class="step">STEP 2</p>
+          <h2>作品を追加・編集</h2>
+        </div>
+        <div class="editor-actions">
+          <label class="primary-button file-button">
+            写真を追加
+            <input id="file-input" type="file" accept="image/*" multiple>
+          </label>
+          <button id="publish-button" class="publish-button" type="button">変更を公開</button>
+        </div>
+      </div>
+
+      <div class="tips">
+        <span>↑ ↓ で並び替え</span>
+        <span>タイトルはその場で編集</span>
+        <span>「トップ画像」でメインビジュアル変更</span>
+      </div>
+
+      <div id="empty-state" class="empty-state hidden">
+        作品がまだありません。「写真を追加」からスマホの写真を選んでください。
+      </div>
+      <div id="works-list" class="works-list" aria-live="polite"></div>
+    </section>
+
+    <section class="panel hidden" id="publish-panel">
+      <div class="panel-heading">
+        <div>
+          <p class="step">STATUS</p>
+          <h2>公開状況</h2>
+        </div>
+      </div>
+      <div id="publish-status" class="publish-status"></div>
+    </section>
+  </main>
+
+  <template id="work-template">
+    <article class="work-editor-card">
+      <div class="preview-wrap">
+        <img class="work-preview" alt="">
+        <span class="new-badge hidden">NEW</span>
+      </div>
+      <div class="work-fields">
+        <label>
+          <span>タイトル</span>
+          <input class="title-input" type="text" maxlength="60" placeholder="作品タイトル">
+        </label>
+        <div class="field-grid">
+          <label>
+            <span>カテゴリ</span>
+            <select class="category-select">
+              <option value="girl">女の子</option>
+              <option value="stream">配信系</option>
+              <option value="event">記念・お祝い</option>
+            </select>
+          </label>
+          <label>
+            <span>表示サイズ</span>
+            <select class="size-select">
+              <option value="normal">標準</option>
+              <option value="large">大きめ</option>
+              <option value="tall">縦長</option>
+              <option value="wide">横長</option>
+            </select>
+          </label>
+        </div>
+        <label class="hero-toggle">
+          <input class="hero-radio" type="radio" name="hero-work">
+          <span>トップ画像にする</span>
+        </label>
+      </div>
+      <div class="order-actions">
+        <button class="icon-button move-up" type="button" aria-label="上へ移動">↑</button>
+        <button class="icon-button move-down" type="button" aria-label="下へ移動">↓</button>
+        <button class="remove-button" type="button">一覧から外す</button>
+      </div>
+    </article>
+  </template>
+
+  <script src="admin.js"></script>
+</body>
+</html>
