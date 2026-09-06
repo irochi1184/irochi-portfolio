@@ -1,0 +1,52 @@
+.preview-column {
+  display: grid;
+  gap: 8px;
+  width: 130px;
+}
+
+.replace-button,
+.undo-replace {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 36px;
+  padding: 0 10px;
+  border-radius: 11px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.replace-button {
+  border: 1px solid var(--line);
+  background: #eef9f6;
+  color: var(--main-dark);
+  cursor: pointer;
+}
+
+.replace-button input {
+  display: none;
+}
+
+.undo-replace {
+  border: 1px solid #f0d9de;
+  background: #fff7f8;
+  color: var(--danger);
+}
+
+.new-badge.replaced {
+  background: #6b82d9;
+}
+
+@media (max-width: 700px) {
+  .preview-column {
+    width: 90px;
+  }
+
+  .replace-button,
+  .undo-replace {
+    min-height: 34px;
+    padding: 0 6px;
+    font-size: 10px;
+  }
+}
