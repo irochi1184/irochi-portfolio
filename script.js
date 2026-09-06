@@ -22,7 +22,6 @@ filterButtons.forEach(button => {
   button.addEventListener('click', () => {
     filterButtons.forEach(b => b.classList.remove('active'));
     button.classList.add('active');
-
     const filter = button.dataset.filter;
     cards.forEach(card => {
       card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
@@ -49,28 +48,20 @@ function closeLightbox() {
   lightbox.classList.remove('open');
   lightbox.setAttribute('aria-hidden', 'true');
 }
-
 closeButton?.addEventListener('click', closeLightbox);
-lightbox?.addEventListener('click', (e) => {
-  if (e.target === lightbox) closeLightbox();
-});
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape') closeLightbox();
-});
+lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeLightbox(); });
 
-// Load the editorial hero/profile layer without changing the portfolio data managed by admin.html.
 const editorialStyle = document.createElement('link');
 editorialStyle.rel = 'stylesheet';
 editorialStyle.href = 'hero-v2.css';
 document.head.appendChild(editorialStyle);
 
-// Rebuild only the hero presentation. Existing image selections are reused so admin updates still carry through.
 const hero = document.querySelector('.hero');
 if (hero) {
   const mainImage = hero.querySelector('.main-card img');
   const topImage = hero.querySelector('.card-top img');
   const bottomImage = hero.querySelector('.card-bottom img');
-
   const mainSrc = mainImage?.getAttribute('src') || 'assets/work-20260907-054924-replace-1788727764575.webp';
   const mainAlt = mainImage?.getAttribute('alt') || 'メインイラスト';
   const mainPosition = mainImage?.style.objectPosition || '50% 35%';
@@ -78,7 +69,6 @@ if (hero) {
   const topAlt = topImage?.getAttribute('alt') || '作品イラスト';
   const bottomSrc = bottomImage?.getAttribute('src') || mainSrc;
   const bottomAlt = bottomImage?.getAttribute('alt') || '作品イラスト';
-
   hero.className = 'hero hero-editorial section-shell';
   hero.innerHTML = `
     <div class="hero-editorial-copy reveal">
@@ -91,20 +81,17 @@ if (hero) {
       </div>
     </div>
     <div class="hero-editorial-visual reveal" aria-label="selected works">
-      <figure class="hero-art-main">
-        <img src="${mainSrc}" alt="${mainAlt}" fetchpriority="high" decoding="async" style="object-position:${mainPosition}">
-      </figure>
+      <figure class="hero-art-main"><img src="${mainSrc}" alt="${mainAlt}" fetchpriority="high" decoding="async" style="object-position:${mainPosition}"></figure>
       <figure class="hero-art-mini one"><img src="${topSrc}" alt="${topAlt}" decoding="async"></figure>
       <figure class="hero-art-mini two"><img src="${bottomSrc}" alt="${bottomAlt}" decoding="async"></figure>
       <span class="hero-edition">illustration portfolio / 2026</span>
-    </div>
-  `;
+    </div>`;
 }
 
-// Profile: the attached male character is irochi's activity image, not a sample of a service category.
 const aboutGrid = document.querySelector('.about-grid');
 const profileCard = document.querySelector('.profile-card');
 const strengthCard = document.querySelector('.strength-card, .boy-profile-card');
+const profileImagePath = document.querySelector('meta[name="irochi-profile-image"]')?.getAttribute('content') || 'assets/irochi-profile.webp';
 if (aboutGrid && profileCard) {
   aboutGrid.classList.add('irochi-profile-layout');
   profileCard.classList.add('irochi-profile-card');
@@ -113,15 +100,11 @@ if (aboutGrid && profileCard) {
       <span class="card-label">creator</span>
       <h3>irochi</h3>
       <p>かわいい女の子イラストを中心に制作。やわらかな塗りと、配信やSNSで印象に残る表情づくりを大切にしています。</p>
-      <ul>
-        <li>一枚絵 / 立ち絵 / アイコン / サムネイル</li>
-        <li>配信向け / 記念イラスト</li>
-      </ul>
+      <ul><li>一枚絵 / 立ち絵 / アイコン / サムネイル</li><li>配信向け / 記念イラスト</li></ul>
     </div>
     <div class="irochi-profile-media">
-      <img src="assets/irochi-profile.webp" alt="irochi の活動イメージイラスト" loading="lazy" decoding="async">
-    </div>
-  `;
+      <img src="${profileImagePath}" alt="irochi の活動イメージイラスト" loading="lazy" decoding="async">
+    </div>`;
   strengthCard?.remove();
 }
 
@@ -132,7 +115,6 @@ const priceSettings = [
   { title: '立ち絵', price: '¥10,000〜', items: ['全身', '背景透過', '配信用・紹介用におすすめ'] },
   { title: '背景あり記念イラスト', price: '¥12,000〜', items: ['誕生日・周年向け', '背景あり', '華やかな仕上がり'] }
 ];
-
 priceCards.slice(0, 4).forEach((card, index) => {
   const setting = priceSettings[index];
   if (!setting) return;
@@ -145,22 +127,9 @@ priceCards.slice(0, 4).forEach((card, index) => {
 });
 
 const commissionHeadingText = document.querySelector('.commission-section .section-heading > p');
-if (commissionHeadingText) {
-  commissionHeadingText.textContent = '料金は用途や描き込み量に応じて調整できます。下記は目安です。ご依頼はXから受け付けています。';
-}
-
+if (commissionHeadingText) commissionHeadingText.textContent = '料金は用途や描き込み量に応じて調整できます。下記は目安です。ご依頼はXから受け付けています。';
 const extraCard = document.querySelector('.commission-grid .extra-card');
-if (extraCard) {
-  extraCard.innerHTML = `
-    <h3>ご依頼先・お支払い方法</h3>
-    <div class="extra-list">
-      <div><span>ご依頼先</span><strong><a href="https://x.com/_irochi_?s=11" target="_blank" rel="noopener">X @_irochi_</a></strong></div>
-      <div><span>支払い方法</span><strong>PayPay / 銀行振込</strong></div>
-      <div><span>ご相談内容</span><strong>用途・サイズ・納期など</strong></div>
-    </div>
-  `;
-}
-
+if (extraCard) extraCard.innerHTML = `<h3>ご依頼先・お支払い方法</h3><div class="extra-list"><div><span>ご依頼先</span><strong><a href="https://x.com/_irochi_?s=11" target="_blank" rel="noopener">X @_irochi_</a></strong></div><div><span>支払い方法</span><strong>PayPay / 銀行振込</strong></div><div><span>ご相談内容</span><strong>用途・サイズ・納期など</strong></div></div>`;
 const contactCard = document.querySelector('.contact-card');
 if (contactCard) {
   const heading = contactCard.querySelector('h2');
