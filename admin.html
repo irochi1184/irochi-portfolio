@@ -3,26 +3,44 @@
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="robots" content="noindex,nofollow"><meta name="theme-color" content="#6ad7c9">
-<title>作品管理 | irochi portfolio</title>
+<title>作品・プロフィール管理 | irochi portfolio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-<header class="admin-header"><div><p class="eyebrow">IROCHI PORTFOLIO</p><h1>作品管理</h1></div><a class="ghost-button" href="./" target="_blank" rel="noopener">公開サイトを見る</a></header>
+<header class="admin-header"><div><p class="eyebrow">IROCHI PORTFOLIO</p><h1>作品・プロフィール管理</h1></div><a class="ghost-button" href="./" target="_blank" rel="noopener">公開サイトを見る</a></header>
 <main class="admin-shell">
 <section class="panel" id="auth-panel">
 <div class="panel-heading"><div><p class="step">STEP 1</p><h2>GitHubに接続</h2></div><span class="status-badge" id="connection-status">未接続</span></div>
 <p class="muted">irochi-portfolio だけを編集できる Fine-grained Personal Access Token を入力します。トークンはこの画面内の処理だけに使用します。</p>
-<div class="token-row"><input id="token-input" type="password" autocomplete="off" placeholder="github_pat_..."><button id="load-button" class="primary-button">作品を読み込む</button></div>
+<div class="token-row"><input id="token-input" type="password" autocomplete="off" placeholder="github_pat_..."><button id="load-button" class="primary-button">内容を読み込む</button></div>
 <label class="check-row"><input id="remember-session" type="checkbox" checked><span>このタブを閉じるまでトークンを保持する</span></label>
 </section>
 
 <section class="panel hidden" id="editor-panel">
-<div class="panel-heading editor-heading"><div><p class="step">STEP 2</p><h2>作品を追加・編集</h2></div>
+<div class="panel-heading editor-heading"><div><p class="step">STEP 2</p><h2>プロフィール・作品を編集</h2></div>
 <div class="editor-actions"><label class="primary-button file-button">写真を追加<input id="file-input" type="file" accept="image/*" multiple></label><button id="save-draft" class="ghost-button">下書き保存</button><button id="load-draft" class="ghost-button">下書き読込</button><button id="clear-draft" class="ghost-button">下書き破棄</button><button id="publish-button" class="publish-button">変更を公開</button></div></div>
-<div class="tips"><span>ドラッグまたは↑↓で並び替え</span><span>画像差し替え</span><span>非公開</span><span>説明・タグ</span><span>制作日・公開日</span><span>サムネ位置</span><span>複製</span></div>
+<div class="tips"><span>プロフィール画像差し替え</span><span>ドラッグまたは↑↓で並び替え</span><span>作品画像差し替え</span><span>非公開</span><span>説明・タグ</span><span>制作日・公開日</span><span>サムネ位置</span><span>複製</span></div>
 <div class="history-box"><label>変更履歴<select id="history-select"><option value="">履歴を選択</option></select></label><button id="load-history" class="ghost-button">この履歴を読み込む</button></div>
+
+<section class="profile-manager" aria-labelledby="profile-manager-title">
+<div class="profile-manager-copy">
+<p class="step">PROFILE IMAGE</p>
+<h3 id="profile-manager-title">プロフィールイラスト</h3>
+<p class="muted">公開サイトの「irochi」プロフィールに表示される活動イメージです。スマホの写真からいつでも差し替えられます。</p>
+<div class="profile-actions">
+<label class="primary-button file-button">画像を差し替え<input id="profile-file-input" type="file" accept="image/*"></label>
+<button id="profile-undo-button" class="ghost-button hidden" type="button">差し替えを取消</button>
+</div>
+</div>
+<div class="profile-preview-wrap">
+<img id="profile-preview" src="assets/irochi-profile.webp" alt="プロフィールイラストのプレビュー">
+<span id="profile-replace-badge" class="replace-badge hidden">差し替え</span>
+</div>
+</section>
+
+<div class="works-subheading"><div><p class="step">WORKS</p><h3>作品一覧</h3></div></div>
 <div id="empty-state" class="empty-state hidden">作品がありません。「写真を追加」から追加してください。</div>
 <div id="works-list" class="works-list"></div>
 </section>
