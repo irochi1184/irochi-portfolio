@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="ja"><head>
+<html lang="ja">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="irochi のイラストポートフォリオ。かわいい女の子イラストを中心に、配信用・記念イラスト・ご依頼料金表を掲載しています。">
@@ -10,12 +11,15 @@
   <meta property="og:url" content="https://irochi1184.github.io/irochi-portfolio/">
   <meta property="og:image" content="https://irochi1184.github.io/irochi-portfolio/assets/work-20260907-054924-replace-1788727764575.webp">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="irochi-profile-image" content="assets/irochi-profile-20260907-070333.webp">
   <title>irochi | Illustration Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&amp;family=M+PLUS+Rounded+1c:wght@400;500;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700&family=M+PLUS+Rounded+1c:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-<meta name="irochi-profile-image" content="assets/irochi-profile-20260907-070333.webp"></head>
+  <link rel="stylesheet" href="hero-v2.css">
+  <link rel="stylesheet" href="motion.css">
+</head>
 <body>
   <div class="bg-bubbles bubble-a"></div>
   <div class="bg-bubbles bubble-b"></div>
@@ -26,11 +30,9 @@
       <span class="logo-main">irochi</span>
       <span class="logo-sub">illustration portfolio</span>
     </a>
-
     <button class="menu-button" aria-label="メニューを開く" aria-expanded="false" aria-controls="main-nav">
       <span></span><span></span><span></span>
     </button>
-
     <nav class="nav" id="main-nav">
       <a href="#works">作品</a>
       <a href="#about">プロフィール</a>
@@ -40,257 +42,117 @@
   </header>
 
   <main id="top">
-    <section class="hero section-shell">
-      <div class="hero-copy reveal">
-        <div class="mini-badges">
-          <span>かわいい</span>
-          <span>配信向け</span>
-          <span>記念イラスト</span>
-        </div>
-        <p class="eyebrow">ILLUSTRATION PORTFOLIO</p>
-        <h1>ポップでかわいい、<br>目を引く女の子イラストを。</h1>
-        <p class="hero-text">
-          女の子イラストを中心に、配信用の一枚絵、記念イラスト、立ち絵、
-          アイコンなどを制作しています。表情や色づかいを大切に、
-          見た瞬間に印象へ残る「かわいい」を目指しています。
-        </p>
-        <div class="hero-actions">
-          <a class="button primary" href="#works">作品を見る</a>
-          <a class="button secondary" href="#commission">料金を見る</a>
-        </div>
-        <div class="hero-stats">
-          <div><strong>14</strong><span>掲載作品</span></div>
-          <div><strong>Girl</strong><span>女の子中心</span></div>
-          <div><strong>Vtuber</strong><span>配信向けも対応</span></div>
+    <section class="hero hero-editorial section-shell">
+      <div class="hero-editorial-copy reveal">
+        <p class="hero-kicker">IROCHI — ILLUSTRATOR</p>
+        <h1 class="hero-brand">irochi<i>.</i></h1>
+        <p class="hero-tagline">かわいいを、ひとつのイラストに。</p>
+        <div class="hero-editorial-actions">
+          <a class="hero-editorial-link" href="#works">WORKS</a>
+          <a class="hero-editorial-link" href="#commission">COMMISSION</a>
         </div>
       </div>
-
-      <div class="hero-visual reveal">
-        <div class="hero-card main-card">
-          <img src="assets/work-20260907-054924-replace-1788727764575.webp" alt="歌配信イラストのイラスト" fetchpriority="high" decoding="async" style="object-position: 50% 35%;">
-        </div>
-        <div class="hero-card mini-card card-top">
-          <img src="assets/work-20260907-054939-replace-1788727779864.webp" alt="花束を持った女の子イラスト">
-        </div>
-        <div class="hero-card mini-card card-bottom">
-          <img src="assets/work-20260907-055204-replace-1788727924484.webp" alt="制服姿の女の子イラスト">
-        </div>
-        <span class="float-tag tag-left">cute</span>
-        <span class="float-tag tag-right">pop</span>
+      <div class="hero-editorial-visual reveal" aria-label="selected works">
+        <figure class="hero-art-main">
+          <img src="assets/work-20260907-054924-replace-1788727764575.webp" alt="歌配信イラストのイラスト" fetchpriority="high" decoding="async" style="object-position:50% 35%">
+        </figure>
+        <figure class="hero-art-mini one"><img src="assets/work-20260907-054939-replace-1788727779864.webp" alt="3周年お祝いイラスト" decoding="async"></figure>
+        <figure class="hero-art-mini two"><img src="assets/work-20260907-055204-replace-1788727924484.webp" alt="制服イラスト" decoding="async"></figure>
+        <span class="hero-edition">illustration portfolio / 2026</span>
       </div>
     </section>
 
     <section class="marquee">
       <div class="marquee-track">
-        <span>Girl Illustration</span>
-        <span>Streaming Visual</span>
-        <span>Birthday Art</span>
-        <span>Original Character</span>
-        <span>Vtuber Style</span>
-        <span>Commission Open</span>
-        <span>Girl Illustration</span>
-        <span>Streaming Visual</span>
-        <span>Birthday Art</span>
-        <span>Original Character</span>
-        <span>Vtuber Style</span>
-        <span>Commission Open</span>
+        <span>Girl Illustration</span><span>Streaming Visual</span><span>Birthday Art</span><span>Original Character</span><span>Vtuber Style</span><span>Commission Open</span>
+        <span>Girl Illustration</span><span>Streaming Visual</span><span>Birthday Art</span><span>Original Character</span><span>Vtuber Style</span><span>Commission Open</span>
       </div>
     </section>
 
     <section class="section-shell pick-up">
-      <div class="pickup-card">
-        <span class="pickup-icon">♪</span>
-        <div>
-          <h2>配信やSNSで目を引く一枚に</h2>
-          <p>やわらかな塗りと表情を大切に、アイコンや配信画面でも印象に残るイラストを制作します。</p>
-        </div>
-      </div>
-      <div class="pickup-card">
-        <span class="pickup-icon">★</span>
-        <div>
-          <h2>記念日を彩る華やかなイラスト</h2>
-          <p>誕生日や周年など、大切な日の雰囲気に合わせた色づかい・小物・文字入れもご相談いただけます。</p>
-        </div>
-      </div>
+      <div class="pickup-card"><span class="pickup-icon">♪</span><div><h2>配信やSNSで目を引く一枚に</h2><p>やわらかな塗りと表情を大切に、アイコンや配信画面でも印象に残るイラストを制作します。</p></div></div>
+      <div class="pickup-card"><span class="pickup-icon">★</span><div><h2>記念日を彩る華やかなイラスト</h2><p>誕生日や周年など、大切な日の雰囲気に合わせた色づかい・小物・文字入れもご相談いただけます。</p></div></div>
     </section>
 
     <section class="section-shell works-section" id="works">
       <div class="section-heading">
-        <div>
-          <p class="eyebrow">WORKS</p>
-          <h2>作品一覧</h2>
-        </div>
-        <p>
-          女の子イラストを見やすく並べ、かわいさが伝わるよう大きめのカードで掲載しています。
-          絞り込みで雰囲気ごとに見せ分けできます。
-        </p>
+        <div><p class="eyebrow">WORKS</p><h2>作品一覧</h2></div>
+        <p>女の子イラストを見やすく並べ、かわいさが伝わるよう大きめのカードで掲載しています。絞り込みで雰囲気ごとに見せ分けできます。</p>
       </div>
-
       <div class="filters" aria-label="作品絞り込み">
-        <button class="filter active" data-filter="all">すべて</button>
-        <button class="filter" data-filter="girl">女の子</button>
-        <button class="filter" data-filter="stream">配信系</button>
-        <button class="filter" data-filter="event">記念・お祝い</button>
+        <button class="filter active" data-filter="all">すべて</button><button class="filter" data-filter="girl">女の子</button><button class="filter" data-filter="stream">配信系</button><button class="filter" data-filter="event">記念・お祝い</button>
       </div>
-
       <div class="gallery">
-<article class="work-card large" data-work-id="0dc0d459-3a8c-4c21-8faa-20822215a1f3" data-category="stream" data-description="" data-tags="Vtuber" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-054924-replace-1788727764575.webp" loading="lazy" decoding="async" alt="歌配信イラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>配信系</span><h3>歌配信イラスト</h3></div></article>
-<article class="work-card large" data-work-id="b589f8be-6ea8-4ae3-92c2-e9eaabcdfb4c" data-category="event" data-description="" data-tags="Vtuber|誕生日" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-054939-replace-1788727779864.webp" loading="lazy" decoding="async" alt="3周年お祝いイラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>記念・お祝い</span><h3>3周年お祝いイラスト</h3></div></article>
-<article class="work-card large" data-work-id="d599af22-2132-4af4-9855-dc34bfa29e88" data-category="girl" data-description="" data-tags="オリジナル" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-055204-replace-1788727924484.webp" loading="lazy" decoding="async" alt="制服イラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>女の子</span><h3>制服イラスト</h3></div></article>
-<article class="work-card tall" data-work-id="291535a1-8b2f-4905-a741-f532e386b338" data-category="girl" data-description="" data-tags="オリジナル|配信" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-054952-replace-1788727792279.webp" loading="lazy" decoding="async" alt="ルームウェアイラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>女の子</span><h3>ルームウェアイラスト</h3></div></article>
-<article class="work-card" data-work-id="65111ff8-8fa5-4982-b0e4-c35c214b6dd1" data-category="stream" data-description="" data-tags="プレゼント" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-055010-replace-1788727810519.webp" loading="lazy" decoding="async" alt="ゲーム配信イラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>配信系</span><h3>ゲーム配信イラスト</h3></div></article>
-<article class="work-card" data-work-id="30259e52-e75e-404e-b81f-5c33e9fb9d85" data-category="event" data-description="" data-tags="誕生日|プレゼント" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-055024-replace-1788727824946.webp" loading="lazy" decoding="async" alt="バースデーイラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>記念・お祝い</span><h3>バースデーイラスト</h3></div></article>
-<article class="work-card tall" data-work-id="865e700f-88f6-4f75-8026-7b1b02a7db4a" data-category="girl" data-description="" data-tags="オリジナル" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-055045-replace-1788727845674.webp" loading="lazy" decoding="async" alt="オフショルダーイラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>女の子</span><h3>オフショルダーイラスト</h3></div></article>
-<article class="work-card" data-work-id="b49111fb-d2c8-4141-b58a-37d630e3a966" data-category="event" data-description="" data-tags="誕生日|プレゼント" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-055247-replace-1788727967745.webp" loading="lazy" decoding="async" alt="バースデーイラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>記念・お祝い</span><h3>バースデーイラスト</h3></div></article>
-<article class="work-card wide" data-work-id="de477c75-c773-4f54-abbe-0441df78bc2a" data-category="stream" data-description="" data-tags="ご依頼|Vtuber" data-created-at="2026-09-06" data-published-at="2026-09-06" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-060654-1.webp" loading="lazy" decoding="async" alt="Youtubeサムネイルのイラスト" style="object-position:50% 35%"><div class="work-info"><span>配信系</span><h3>Youtubeサムネイル</h3></div></article>
-<article class="work-card tall" data-work-id="1d1c9eec-aa53-486e-a115-e039f8ad500e" data-category="event" data-description="" data-tags="ご依頼|Vtuber" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-055303-replace-1788727983370.webp" loading="lazy" decoding="async" alt="お祝いイラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>記念・お祝い</span><h3>お祝いイラスト</h3></div></article>
-<article class="work-card wide" data-work-id="b80fc6d6-3c16-4c52-986f-11e613a94fc9" data-category="girl" data-description="" data-tags="オリジナル" data-created-at="2026-09-06" data-published-at="2026-09-06" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-063149-11.webp" loading="lazy" decoding="async" alt="温泉イラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>女の子</span><h3>温泉イラスト</h3></div></article>
-<article class="work-card" data-work-id="86defe2a-45c2-4e32-8ec9-e28cf5e42262" data-category="stream" data-description="" data-tags="Vtuber|ご依頼" data-created-at="2026-09-06" data-published-at="2026-09-06" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-060654-3.webp" loading="lazy" decoding="async" alt="一枚絵依頼のイラスト" style="object-position:50% 35%"><div class="work-info"><span>配信系</span><h3>一枚絵依頼</h3></div></article>
-<article class="work-card" data-work-id="dad50758-7b2e-46ce-8309-6c35e330c584" data-category="girl" data-description="" data-tags="趣味" data-created-at="2026-09-06" data-published-at="2026-09-06" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-060655-4.webp" loading="lazy" decoding="async" alt="二次創作イラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>女の子</span><h3>二次創作イラスト</h3></div></article>
-<article class="work-card wide" data-work-id="c6e6d2fe-31e2-41bc-9233-42c44d177fab" data-category="girl" data-description="" data-tags="" data-created-at="2026-09-06" data-published-at="2026-09-06" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-062955-14.webp" loading="lazy" decoding="async" alt="猫耳イラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>女の子</span><h3>猫耳イラスト</h3></div></article>
-</div>
+        <article class="work-card large" data-work-id="0dc0d459-3a8c-4c21-8faa-20822215a1f3" data-category="stream" data-description="" data-tags="Vtuber" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-054924-replace-1788727764575.webp" loading="lazy" decoding="async" alt="歌配信イラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>配信系</span><h3>歌配信イラスト</h3></div></article>
+        <article class="work-card large" data-work-id="b589f8be-6ea8-4ae3-92c2-e9eaabcdfb4c" data-category="event" data-description="" data-tags="Vtuber|誕生日" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-054939-replace-1788727779864.webp" loading="lazy" decoding="async" alt="3周年お祝いイラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>記念・お祝い</span><h3>3周年お祝いイラスト</h3></div></article>
+        <article class="work-card large" data-work-id="d599af22-2132-4af4-9855-dc34bfa29e88" data-category="girl" data-description="" data-tags="オリジナル" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-055204-replace-1788727924484.webp" loading="lazy" decoding="async" alt="制服イラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>女の子</span><h3>制服イラスト</h3></div></article>
+        <article class="work-card tall" data-work-id="291535a1-8b2f-4905-a741-f532e386b338" data-category="girl" data-description="" data-tags="オリジナル|配信" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-054952-replace-1788727792279.webp" loading="lazy" decoding="async" alt="ルームウェアイラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>女の子</span><h3>ルームウェアイラスト</h3></div></article>
+        <article class="work-card" data-work-id="65111ff8-8fa5-4982-b0e4-c35c214b6dd1" data-category="stream" data-description="" data-tags="プレゼント" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-055010-replace-1788727810519.webp" loading="lazy" decoding="async" alt="ゲーム配信イラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>配信系</span><h3>ゲーム配信イラスト</h3></div></article>
+        <article class="work-card" data-work-id="30259e52-e75e-404e-b81f-5c33e9fb9d85" data-category="event" data-description="" data-tags="誕生日|プレゼント" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-055024-replace-1788727824946.webp" loading="lazy" decoding="async" alt="バースデーイラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>記念・お祝い</span><h3>バースデーイラスト</h3></div></article>
+        <article class="work-card tall" data-work-id="865e700f-88f6-4f75-8026-7b1b02a7db4a" data-category="girl" data-description="" data-tags="オリジナル" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-055045-replace-1788727845674.webp" loading="lazy" decoding="async" alt="オフショルダーイラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>女の子</span><h3>オフショルダーイラスト</h3></div></article>
+        <article class="work-card" data-work-id="b49111fb-d2c8-4141-b58a-37d630e3a966" data-category="event" data-description="" data-tags="誕生日|プレゼント" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-055247-replace-1788727967745.webp" loading="lazy" decoding="async" alt="バースデーイラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>記念・お祝い</span><h3>バースデーイラスト</h3></div></article>
+        <article class="work-card wide" data-work-id="de477c75-c773-4f54-abbe-0441df78bc2a" data-category="stream" data-description="" data-tags="ご依頼|Vtuber" data-created-at="2026-09-06" data-published-at="2026-09-06" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-060654-1.webp" loading="lazy" decoding="async" alt="Youtubeサムネイルのイラスト" style="object-position:50% 35%"><div class="work-info"><span>配信系</span><h3>Youtubeサムネイル</h3></div></article>
+        <article class="work-card tall" data-work-id="1d1c9eec-aa53-486e-a115-e039f8ad500e" data-category="event" data-description="" data-tags="ご依頼|Vtuber" data-created-at="" data-published-at="" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-055303-replace-1788727983370.webp" loading="lazy" decoding="async" alt="お祝いイラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>記念・お祝い</span><h3>お祝いイラスト</h3></div></article>
+        <article class="work-card wide" data-work-id="b80fc6d6-3c16-4c52-986f-11e613a94fc9" data-category="girl" data-description="" data-tags="オリジナル" data-created-at="2026-09-06" data-published-at="2026-09-06" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-063149-11.webp" loading="lazy" decoding="async" alt="温泉イラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>女の子</span><h3>温泉イラスト</h3></div></article>
+        <article class="work-card" data-work-id="86defe2a-45c2-4e32-8ec9-e28cf5e42262" data-category="stream" data-description="" data-tags="Vtuber|ご依頼" data-created-at="2026-09-06" data-published-at="2026-09-06" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-060654-3.webp" loading="lazy" decoding="async" alt="一枚絵依頼のイラスト" style="object-position:50% 35%"><div class="work-info"><span>配信系</span><h3>一枚絵依頼</h3></div></article>
+        <article class="work-card" data-work-id="dad50758-7b2e-46ce-8309-6c35e330c584" data-category="girl" data-description="" data-tags="趣味" data-created-at="2026-09-06" data-published-at="2026-09-06" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-060655-4.webp" loading="lazy" decoding="async" alt="二次創作イラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>女の子</span><h3>二次創作イラスト</h3></div></article>
+        <article class="work-card wide" data-work-id="c6e6d2fe-31e2-41bc-9233-42c44d177fab" data-category="girl" data-description="" data-tags="" data-created-at="2026-09-06" data-published-at="2026-09-06" data-focal-x="50" data-focal-y="35"><img src="assets/work-20260907-062955-14.webp" loading="lazy" decoding="async" alt="猫耳イラストのイラスト" style="object-position:50% 35%"><div class="work-info"><span>女の子</span><h3>猫耳イラスト</h3></div></article>
+      </div>
     </section>
 
     <section class="section-shell about-section" id="about">
-      <div class="section-heading compact">
-        <div>
-          <p class="eyebrow">ABOUT</p>
-          <h2>プロフィール</h2>
-        </div>
-      </div>
-
-      <div class="about-grid">
-        <div class="about-card profile-card">
-          <span class="card-label">creator</span>
-          <h3>irochi</h3>
-          <p>
-            かわいい女の子イラストを中心に制作しているイラストレーターです。
-            やわらかな塗りと親しみやすい表情、配信映えする見た目づくりを大切にしています。
-          </p>
-          <ul>
-            <li>得意：女の子 / 配信向け / 記念イラスト</li>
-            <li>対応：一枚絵 / 立ち絵 / アイコン / サムネイル</li>
-            <li>雰囲気：かわいい / ポップ / やさしい色合い</li>
-          </ul>
-        </div>
-
-        <div class="about-card strength-card">
-          <span class="card-label">point</span>
-          <h3>得意なイラスト</h3>
-          <div class="point-list">
-            <div><strong>01</strong><p>表情が伝わる、かわいい女の子イラスト</p></div>
-            <div><strong>02</strong><p>配信・SNSで使いやすい、明るく見やすい一枚絵</p></div>
-            <div><strong>03</strong><p>誕生日・周年など、特別感のある記念イラスト</p></div>
+      <div class="section-heading compact"><div><p class="eyebrow">ABOUT</p><h2>プロフィール</h2></div></div>
+      <div class="about-grid irochi-profile-layout">
+        <div class="about-card profile-card irochi-profile-card">
+          <div class="irochi-profile-copy">
+            <span class="card-label">creator</span>
+            <h3>irochi</h3>
+            <p>かわいい女の子イラストを中心に制作。やわらかな塗りと、配信やSNSで印象に残る表情づくりを大切にしています。</p>
+            <ul><li>一枚絵 / 立ち絵 / アイコン / サムネイル</li><li>配信向け / 記念イラスト</li></ul>
           </div>
+          <div class="irochi-profile-media"><img src="assets/irochi-profile-20260907-070333.webp" alt="irochi の活動イメージイラスト" loading="lazy" decoding="async"></div>
         </div>
       </div>
     </section>
 
     <section class="section-shell commission-section" id="commission">
       <div class="section-heading">
-        <div>
-          <p class="eyebrow">COMMISSION</p>
-          <h2>ご依頼・料金表</h2>
-        </div>
-        <p>
-          料金は用途や描き込み量に応じて調整できます。下記は目安です。
-          必要であれば商用利用、差分、背景追加などもご相談いただけます。
-        </p>
+        <div><p class="eyebrow">COMMISSION</p><h2>ご依頼・料金表</h2></div>
+        <p>料金は用途や描き込み量に応じて調整できます。下記は目安です。ご依頼はXから受け付けています。</p>
       </div>
-
       <div class="price-grid">
-        <article class="price-card">
-          <span class="card-badge">おすすめ</span>
-          <h3>SNSアイコン</h3>
-          <p class="price">¥5,000〜</p>
-          <ul>
-            <li>顔まわり〜バストアップ</li>
-            <li>簡易背景</li>
-            <li>個人利用向け</li>
-          </ul>
-        </article>
-        <article class="price-card featured">
-          <h3>一枚絵</h3>
-          <p class="price">¥15,000〜</p>
-          <ul>
-            <li>人物1名</li>
-            <li>背景ありも相談可能</li>
-            <li>記念イラストやサムネイル向け</li>
-          </ul>
-        </article>
-        <article class="price-card">
-          <h3>立ち絵</h3>
-          <p class="price">¥12,000〜</p>
-          <ul>
-            <li>全身</li>
-            <li>背景透過</li>
-            <li>配信用・紹介用におすすめ</li>
-          </ul>
-        </article>
-        <article class="price-card">
-          <h3>記念イラスト</h3>
-          <p class="price">¥18,000〜</p>
-          <ul>
-            <li>誕生日・周年向け</li>
-            <li>小物や文字入れ対応</li>
-            <li>華やかな仕上がり</li>
-          </ul>
-        </article>
+        <article class="price-card"><h3>SNSアイコン</h3><p class="price">¥4,000〜</p><ul><li>顔まわり〜バストアップ</li><li>簡易背景</li><li>個人利用向け</li></ul></article>
+        <article class="price-card featured"><span class="card-badge">おすすめ</span><h3>一枚絵</h3><p class="price">¥7,000〜</p><ul><li>人物1名</li><li>背景なし〜簡易背景</li><li>配信・サムネイル向け</li></ul></article>
+        <article class="price-card"><h3>立ち絵</h3><p class="price">¥10,000〜</p><ul><li>全身</li><li>背景透過</li><li>配信用・紹介用におすすめ</li></ul></article>
+        <article class="price-card"><h3>背景あり記念イラスト</h3><p class="price">¥12,000〜</p><ul><li>誕生日・周年向け</li><li>背景あり</li><li>華やかな仕上がり</li></ul></article>
       </div>
-
       <div class="commission-grid">
         <div class="extra-card">
-          <h3>追加料金の例</h3>
+          <h3>ご依頼先・お支払い方法</h3>
           <div class="extra-list">
-            <div><span>人物追加</span><strong>+ ¥5,000〜</strong></div>
-            <div><span>複雑な背景・小物</span><strong>+ ¥3,000〜</strong></div>
-            <div><span>表情差分</span><strong>+ ¥1,500〜</strong></div>
-            <div><span>商用利用</span><strong>制作費の50%〜</strong></div>
+            <div><span>ご依頼先</span><strong><a href="https://x.com/_irochi_?s=11" target="_blank" rel="noopener">X @_irochi_</a></strong></div>
+            <div><span>支払い方法</span><strong class="payment-value">PayPay / 銀行振込</strong></div>
+            <div><span>ご相談内容</span><strong>用途・サイズ・納期など</strong></div>
           </div>
         </div>
-
-        <div class="flow-card">
-          <h3>ご依頼の流れ</h3>
-          <ol>
-            <li><span>1</span><p>ご相談・ヒアリング</p></li>
-            <li><span>2</span><p>お見積り・内容確認</p></li>
-            <li><span>3</span><p>ラフ提出・修正</p></li>
-            <li><span>4</span><p>清書・納品</p></li>
-          </ol>
-        </div>
+        <div class="flow-card"><h3>ご依頼の流れ</h3><ol><li><span>1</span><p>ご相談・ヒアリング</p></li><li><span>2</span><p>お見積り・内容確認</p></li><li><span>3</span><p>ラフ提出・修正</p></li><li><span>4</span><p>清書・納品</p></li></ol></div>
       </div>
     </section>
 
     <section class="section-shell contact-section" id="contact">
       <div class="contact-card">
-        <p class="eyebrow">CONTACT</p>
-        <h2>ご依頼・ご相談はこちら</h2>
-        <p>
-          「まずは見積りだけ知りたい」「こんな雰囲気で描けるか聞きたい」など、
-          まだ内容が固まっていない段階でもお気軽にご連絡ください。
-        </p>
-        <div class="contact-buttons">
-          <span class="button primary contact-disabled" aria-disabled="true">ご依頼受付先は準備中です</span>
-        </div>
-        <p class="contact-note">連絡先を掲載後、こちらから直接ご相談いただけるようになります。</p>
+        <p class="eyebrow">CONTACT</p><h2>ご依頼・ご相談はこちら</h2>
+        <p>見積りだけ知りたい場合も、Xからお気軽にご相談ください。</p>
+        <div class="contact-buttons"><a class="button primary" href="https://x.com/_irochi_?s=11" target="_blank" rel="noopener">Xで依頼する</a></div>
+        <p class="contact-note">支払い方法：PayPay / 銀行振込</p>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <a class="logo" href="#top">
-      <span class="logo-main">irochi</span>
-      <span class="logo-sub">illustration portfolio</span>
-    </a>
-    <p>© 2026 irochi. All Rights Reserved.</p>
-  </footer>
-
-  <div class="lightbox" aria-hidden="true">
-    <button class="lightbox-close" aria-label="閉じる">×</button>
-    <img src="" alt="">
-  </div>
-
+  <footer class="footer"><a class="logo" href="#top"><span class="logo-main">irochi</span><span class="logo-sub">illustration portfolio</span></a><p>© 2026 irochi. All Rights Reserved.</p></footer>
+  <div class="lightbox" aria-hidden="true"><button class="lightbox-close" aria-label="閉じる">×</button><img src="" alt=""></div>
   <script src="script.js"></script>
-
-
-<template id="portfolio-hidden-works"></template></body></html>
+  <script src="motion.js" defer></script>
+  <template id="portfolio-hidden-works"></template>
+</body>
+</html>
