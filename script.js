@@ -1,33 +1,136 @@
-const menuButton=document.querySelector('.menu-button');
-const nav=document.querySelector('.nav');
-if(menuButton&&nav){menuButton.addEventListener('click',()=>{const open=nav.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open))});document.querySelectorAll('.nav a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('open');menuButton.setAttribute('aria-expanded','false')}))}
+const menuButton = document.querySelector('.menu-button');
+const nav = document.querySelector('.nav');
 
-const filterButtons=document.querySelectorAll('.filter');
-const cards=document.querySelectorAll('.work-card');
-filterButtons.forEach(button=>button.addEventListener('click',()=>{filterButtons.forEach(b=>b.classList.remove('active'));button.classList.add('active');const filter=button.dataset.filter;cards.forEach(card=>{card.style.display=(filter==='all'||card.dataset.category===filter)?'':'none'})}));
+if (menuButton && nav) {
+  menuButton.addEventListener('click', () => {
+    const open = nav.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(open));
+  });
+  document.querySelectorAll('.nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      menuButton.setAttribute('aria-expanded', 'false');
+    });
+  });
+}
 
-const lightbox=document.querySelector('.lightbox');
-const lightboxImage=lightbox?.querySelector('img');
-const closeButton=lightbox?.querySelector('.lightbox-close');
-document.querySelectorAll('.work-card img').forEach(image=>image.addEventListener('click',()=>{if(!lightbox||!lightboxImage)return;lightboxImage.src=image.src;lightboxImage.alt=image.alt;lightbox.classList.add('open');lightbox.setAttribute('aria-hidden','false')}));
-function closeLightbox(){if(!lightbox)return;lightbox.classList.remove('open');lightbox.setAttribute('aria-hidden','true')}
-closeButton?.addEventListener('click',closeLightbox);lightbox?.addEventListener('click',e=>{if(e.target===lightbox)closeLightbox()});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+const filterButtons = document.querySelectorAll('.filter');
+const cards = document.querySelectorAll('.work-card');
+filterButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach(b => b.classList.remove('active'));
+    button.classList.add('active');
+    const filter = button.dataset.filter;
+    cards.forEach(card => {
+      card.style.display = filter === 'all' || card.dataset.category === filter ? '' : 'none';
+    });
+  });
+});
 
-const DEFAULT_SETTINGS={heroCatchphrase:'かわいいを、ひとつのイラストに。',profileText:'かわいい女の子イラストを中心に制作。やわらかな塗りと、配信やSNSで印象に残る表情づくりを大切にしています。',xUrl:'https://x.com/_irochi_?s=11',xLabel:'X @_irochi_',paymentMethods:'PayPay / 銀行振込',openingEnabled:true,recommendedPriceIndex:1,prices:[{title:'SNSアイコン',price:'¥4,000〜',items:['顔まわり〜バストアップ','簡易背景','個人利用向け']},{title:'一枚絵',price:'¥7,000〜',items:['人物1名','背景なし〜簡易背景','配信・サムネイル向け']},{title:'立ち絵',price:'¥10,000〜',items:['全身','背景透過','配信用・紹介用におすすめ']},{title:'背景あり記念イラスト',price:'¥12,000〜',items:['誕生日・周年向け','背景あり','華やかな仕上がり']}]};
+const lightbox = document.querySelector('.lightbox');
+const lightboxImage = lightbox?.querySelector('img');
+const closeButton = lightbox?.querySelector('.lightbox-close');
 
-async function loadSiteSettings(){try{const r=await fetch(`site-settings.json?v=${Date.now()}`,{cache:'no-store'});if(!r.ok)throw new Error('settings');const data=await r.json();return{...DEFAULT_SETTINGS,...data,prices:Array.isArray(data.prices)?data.prices:DEFAULT_SETTINGS.prices}}catch{return DEFAULT_SETTINGS}}
+document.querySelectorAll('.work-card img').forEach(image => {
+  image.addEventListener('click', () => {
+    if (!lightbox || !lightboxImage) return;
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+  });
+});
 
-function buildEditorialHero(settings){const hero=document.querySelector('.hero');if(!hero)return;if(hero.classList.contains('hero-editorial')){const tagline=hero.querySelector('.hero-tagline');if(tagline)tagline.textContent=settings.heroCatchphrase||DEFAULT_SETTINGS.heroCatchphrase;return}const editorialStyle=document.createElement('link');editorialStyle.rel='stylesheet';editorialStyle.href='hero-v2.css';document.head.appendChild(editorialStyle);const mainImage=hero.querySelector('.main-card img'),topImage=hero.querySelector('.card-top img'),bottomImage=hero.querySelector('.card-bottom img');const mainSrc=mainImage?.getAttribute('src')||'assets/work-20260907-054924-replace-1788727764575.webp',mainAlt=mainImage?.getAttribute('alt')||'メインイラスト',mainPosition=mainImage?.style.objectPosition||'50% 35%',topSrc=topImage?.getAttribute('src')||mainSrc,topAlt=topImage?.getAttribute('alt')||'作品イラスト',bottomSrc=bottomImage?.getAttribute('src')||mainSrc,bottomAlt=bottomImage?.getAttribute('alt')||'作品イラスト';hero.className='hero hero-editorial section-shell';hero.innerHTML=`<div class="hero-editorial-copy reveal"><p class="hero-kicker">IROCHI — ILLUSTRATOR</p><h1 class="hero-brand">irochi<i>.</i></h1><p class="hero-tagline"></p><div class="hero-editorial-actions"><a class="hero-editorial-link" href="#works">WORKS</a><a class="hero-editorial-link" href="#commission">COMMISSION</a></div></div><div class="hero-editorial-visual reveal" aria-label="selected works"><figure class="hero-art-main"><img src="${mainSrc}" alt="${mainAlt}" fetchpriority="high" decoding="async" style="object-position:${mainPosition}"></figure><figure class="hero-art-mini one"><img src="${topSrc}" alt="${topAlt}" decoding="async"></figure><figure class="hero-art-mini two"><img src="${bottomSrc}" alt="${bottomAlt}" decoding="async"></figure><span class="hero-edition">illustration portfolio / 2026</span></div>`;hero.querySelector('.hero-tagline').textContent=settings.heroCatchphrase||DEFAULT_SETTINGS.heroCatchphrase}
+function closeLightbox() {
+  if (!lightbox) return;
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+}
 
-function applyProfile(settings){const aboutGrid=document.querySelector('.about-grid'),profileCard=document.querySelector('.profile-card'),strengthCard=document.querySelector('.strength-card,.boy-profile-card'),profileImagePath=document.querySelector('meta[name="irochi-profile-image"]')?.getAttribute('content')||'assets/irochi-profile.webp';if(!aboutGrid||!profileCard)return;aboutGrid.classList.add('irochi-profile-layout');profileCard.classList.add('irochi-profile-card');profileCard.innerHTML=`<div class="irochi-profile-copy"><span class="card-label">creator</span><h3>irochi</h3><p></p><ul><li>一枚絵 / 立ち絵 / アイコン / サムネイル</li><li>配信向け / 記念イラスト</li></ul></div><div class="irochi-profile-media"><img src="${profileImagePath}" alt="irochi の活動イメージイラスト" loading="lazy" decoding="async"></div>`;profileCard.querySelector('p').textContent=settings.profileText||DEFAULT_SETTINGS.profileText;strengthCard?.remove()}
+closeButton?.addEventListener('click', closeLightbox);
+lightbox?.addEventListener('click', e => {
+  if (e.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') closeLightbox();
+});
 
-function applyCommission(settings){const priceCards=[...document.querySelectorAll('.price-card')].slice(0,4);priceCards.forEach((card,index)=>{const s=settings.prices[index]||DEFAULT_SETTINGS.prices[index];card.classList.toggle('featured',index===Number(settings.recommendedPriceIndex));card.querySelector('.card-badge')?.remove();if(index===Number(settings.recommendedPriceIndex)){const badge=document.createElement('span');badge.className='card-badge';badge.textContent='おすすめ';card.prepend(badge)}const title=card.querySelector('h3'),price=card.querySelector('.price'),list=card.querySelector('ul');if(title)title.textContent=s.title||'';if(price)price.textContent=s.price||'';if(list)list.innerHTML=(s.items||[]).map(item=>`<li>${String(item).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}</li>`).join('')});const heading=document.querySelector('.commission-section .section-heading > p');if(heading)heading.textContent='料金は用途や描き込み量に応じて調整できます。下記は目安です。ご依頼はXから受け付けています。';const extra=document.querySelector('.commission-grid .extra-card');if(extra){extra.innerHTML=`<h3>ご依頼先・お支払い方法</h3><div class="extra-list"><div><span>ご依頼先</span><strong><a target="_blank" rel="noopener"></a></strong></div><div><span>支払い方法</span><strong class="payment-value"></strong></div><div><span>ご相談内容</span><strong>用途・サイズ・納期など</strong></div></div>`;const a=extra.querySelector('a');a.href=settings.xUrl||DEFAULT_SETTINGS.xUrl;a.textContent=settings.xLabel||DEFAULT_SETTINGS.xLabel;extra.querySelector('.payment-value').textContent=settings.paymentMethods||DEFAULT_SETTINGS.paymentMethods}const contact=document.querySelector('.contact-card');if(contact){const heading2=contact.querySelector('h2'),text=contact.querySelector('p:not(.eyebrow)'),buttons=contact.querySelector('.contact-buttons'),note=contact.querySelector('.contact-note');if(heading2)heading2.textContent='ご依頼・ご相談はこちら';if(text)text.textContent='見積りだけ知りたい場合も、Xからお気軽にご相談ください。';if(buttons){buttons.innerHTML='<a class="button primary" target="_blank" rel="noopener">Xで依頼する</a>';buttons.querySelector('a').href=settings.xUrl||DEFAULT_SETTINGS.xUrl}if(note)note.textContent=`支払い方法：${settings.paymentMethods||DEFAULT_SETTINGS.paymentMethods}`}}
+const DEFAULT_SETTINGS = {
+  heroCatchphrase: 'かわいいを、ひとつのイラストに。',
+  profileText: 'かわいい女の子イラストを中心に制作。やわらかな塗りと、配信やSNSで印象に残る表情づくりを大切にしています。',
+  xUrl: 'https://x.com/_irochi_?s=11',
+  xLabel: 'X @_irochi_',
+  paymentMethods: 'PayPay / 銀行振込',
+  openingEnabled: true,
+  recommendedPriceIndex: 1,
+  prices: [
+    { title: 'SNSアイコン', price: '¥4,000〜', items: ['顔まわり〜バストアップ', '簡易背景', '個人利用向け'] },
+    { title: '一枚絵', price: '¥7,000〜', items: ['人物1名', '背景なし〜簡易背景', '配信・サムネイル向け'] },
+    { title: '立ち絵', price: '¥10,000〜', items: ['全身', '背景透過', '配信用・紹介用におすすめ'] },
+    { title: '背景あり記念イラスト', price: '¥12,000〜', items: ['誕生日・周年向け', '背景あり', '華やかな仕上がり'] }
+  ]
+};
 
-function loadMotion(){if(document.querySelector('link[href="motion.css"]'))return;const motionStyle=document.createElement('link');motionStyle.rel='stylesheet';motionStyle.href='motion.css';document.head.appendChild(motionStyle);const motionScript=document.createElement('script');motionScript.src='motion.js';motionScript.defer=true;document.body.appendChild(motionScript)}
+async function loadSiteSettings() {
+  try {
+    const response = await fetch(`site-settings.json?v=${Date.now()}`, { cache: 'no-store' });
+    if (!response.ok) throw new Error('settings');
+    const data = await response.json();
+    return {
+      ...DEFAULT_SETTINGS,
+      ...data,
+      prices: Array.isArray(data.prices) ? data.prices : DEFAULT_SETTINGS.prices
+    };
+  } catch {
+    return DEFAULT_SETTINGS;
+  }
+}
 
-buildEditorialHero(DEFAULT_SETTINGS);
-applyProfile(DEFAULT_SETTINGS);
-applyCommission(DEFAULT_SETTINGS);
-loadMotion();
+function applySettings(settings) {
+  const tagline = document.querySelector('.hero-tagline');
+  if (tagline) tagline.textContent = settings.heroCatchphrase || DEFAULT_SETTINGS.heroCatchphrase;
 
-(async()=>{const settings=await loadSiteSettings();window.IROCHI_SITE_SETTINGS=settings;buildEditorialHero(settings);applyProfile(settings);applyCommission(settings)})();
+  const profileText = document.querySelector('.irochi-profile-copy p');
+  if (profileText) profileText.textContent = settings.profileText || DEFAULT_SETTINGS.profileText;
+
+  const priceCards = [...document.querySelectorAll('.price-card')].slice(0, 4);
+  priceCards.forEach((card, index) => {
+    const source = settings.prices[index] || DEFAULT_SETTINGS.prices[index];
+    card.classList.toggle('featured', index === Number(settings.recommendedPriceIndex));
+    card.querySelector('.card-badge')?.remove();
+    if (index === Number(settings.recommendedPriceIndex)) {
+      const badge = document.createElement('span');
+      badge.className = 'card-badge';
+      badge.textContent = 'おすすめ';
+      card.prepend(badge);
+    }
+    const title = card.querySelector('h3');
+    const price = card.querySelector('.price');
+    const list = card.querySelector('ul');
+    if (title) title.textContent = source.title || '';
+    if (price) price.textContent = source.price || '';
+    if (list) {
+      list.replaceChildren(...(source.items || []).map(item => {
+        const li = document.createElement('li');
+        li.textContent = item;
+        return li;
+      }));
+    }
+  });
+
+  const xLinks = document.querySelectorAll('a[href*="x.com/_irochi_"]');
+  xLinks.forEach(link => {
+    link.href = settings.xUrl || DEFAULT_SETTINGS.xUrl;
+    if (link.closest('.extra-list')) link.textContent = settings.xLabel || DEFAULT_SETTINGS.xLabel;
+  });
+
+  const payment = document.querySelector('.payment-value');
+  if (payment) payment.textContent = settings.paymentMethods || DEFAULT_SETTINGS.paymentMethods;
+  const contactNote = document.querySelector('.contact-note');
+  if (contactNote) contactNote.textContent = `支払い方法：${settings.paymentMethods || DEFAULT_SETTINGS.paymentMethods}`;
+}
+
+loadSiteSettings().then(settings => {
+  window.IROCHI_SITE_SETTINGS = settings;
+  applySettings(settings);
+});
