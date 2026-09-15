@@ -1,9 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://irochi1184.github.io/irochi-portfolio/</loc>
     <lastmod>2026-09-15</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://irochi1184.github.io/irochi-portfolio/assets/work-20260907-054924-replace-1788727764575.webp</image:loc>
+      <image:title>irochi（有田健一郎）イラスト作品</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://irochi1184.github.io/irochi-portfolio/assets/irochi-profile-20260907-070333.webp</image:loc>
+      <image:title>イラストレーター irochi（有田健一郎）プロフィール</image:title>
+    </image:image>
   </url>
 </urlset>
