@@ -57,7 +57,7 @@ document.addEventListener('keydown', e => {
 
 const DEFAULT_SETTINGS = {
   heroCatchphrase: 'かわいいを、ひとつのイラストに。',
-  profileText: 'irochi（有田健一郎）は、かわいい女の子イラストを中心に制作するイラストレーターです。やわらかな塗りと、Vtuber・配信・SNSで印象に残る表情づくりを大切にしています。',
+  profileText: 'かわいい女の子イラストを中心に制作するイラストレーターです。やわらかな塗りと、Vtuber・配信・SNSで印象に残る表情づくりを大切にしています。',
   xUrl: 'https://x.com/_irochi_?s=11',
   xLabel: 'X @_irochi_',
   paymentMethods: 'PayPay / 銀行振込',
@@ -129,6 +129,10 @@ function applySettings(settings) {
   const contactNote = document.querySelector('.contact-note');
   if (contactNote) contactNote.textContent = `支払い方法：${settings.paymentMethods || DEFAULT_SETTINGS.paymentMethods}`;
 }
+
+// 公開HTMLの作品画像参照を安全に補正する。
+const birthdayWorkImage = document.querySelector('[data-work-id="30259e52-e75e-404e-b81f-5c33e9fb9d85"] img');
+if (birthdayWorkImage) birthdayWorkImage.src = 'assets/work-20260907-055024-replace-1788727824946.webp';
 
 loadSiteSettings().then(settings => {
   window.IROCHI_SITE_SETTINGS = settings;
