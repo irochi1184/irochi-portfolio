@@ -8,11 +8,17 @@
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://irochi1184.github.io/irochi-portfolio/assets/work-20260907-054924-replace-1788727764575.webp</image:loc>
-      <image:title>irochi（有田健一郎）イラスト作品</image:title>
+      <image:title>irochi イラスト作品</image:title>
     </image:image>
     <image:image>
       <image:loc>https://irochi1184.github.io/irochi-portfolio/assets/irochi-profile-20260907-070333.webp</image:loc>
-      <image:title>イラストレーター irochi（有田健一郎）プロフィール</image:title>
+      <image:title>irochi プロフィール</image:title>
     </image:image>
+  </url>
+  <url>
+    <loc>https://irochi1184.github.io/irochi-portfolio/creator-info.html</loc>
+    <lastmod>2026-09-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.2</priority>
   </url>
 </urlset>
