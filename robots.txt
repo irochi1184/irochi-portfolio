@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /irochi-portfolio/admin.html
+Disallow: /irochi-portfolio/history/
+
+Sitemap: https://irochi1184.github.io/irochi-portfolio/sitemap.xml
