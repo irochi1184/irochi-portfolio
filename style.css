@@ -512,6 +512,10 @@ button { font: inherit; }
   line-height: 1;
   color: var(--main-dark);
 }
+/* Keep currency glyphs out of the decorative numeral font. */
+.price-currency {
+  font-family: Arial, "Helvetica Neue", "Noto Sans", sans-serif;
+}
 .price-card ul {
   margin: 0;
   padding-left: 18px;

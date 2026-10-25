@@ -56,7 +56,7 @@ document.addEventListener('keydown', e => {
 });
 
 const DEFAULT_SETTINGS = {
-  heroCatchphrase: 'かわいいを、ひとつのイラストに。',
+  heroCatchphrase: '',
   profileText: 'かわいい女の子イラストを中心に制作するイラストレーターです。やわらかな塗りと、Vtuber・配信・SNSで印象に残る表情づくりを大切にしています。',
   xUrl: 'https://x.com/_irochi_?s=11',
   xLabel: 'X @_irochi_',
@@ -88,7 +88,10 @@ async function loadSiteSettings() {
 
 function applySettings(settings) {
   const tagline = document.querySelector('.hero-tagline');
-  if (tagline) tagline.textContent = settings.heroCatchphrase || DEFAULT_SETTINGS.heroCatchphrase;
+  if (tagline) {
+    tagline.textContent = settings.heroCatchphrase ?? DEFAULT_SETTINGS.heroCatchphrase;
+    tagline.hidden = !tagline.textContent.trim();
+  }
 
   const profileText = document.querySelector('.irochi-profile-copy p');
   if (profileText) profileText.textContent = settings.profileText || DEFAULT_SETTINGS.profileText;
@@ -108,7 +111,15 @@ function applySettings(settings) {
     const price = card.querySelector('.price');
     const list = card.querySelector('ul');
     if (title) title.textContent = source.title || '';
-    if (price) price.textContent = source.price || '';
+    if (price) {
+      price.replaceChildren(...(source.price || '').split(/([¥￥])/u).map(part => {
+        if (part !== '¥' && part !== '￥') return document.createTextNode(part);
+        const currency = document.createElement('span');
+        currency.className = 'price-currency';
+        currency.textContent = part;
+        return currency;
+      }));
+    }
     if (list) {
       list.replaceChildren(...(source.items || []).map(item => {
         const li = document.createElement('li');
